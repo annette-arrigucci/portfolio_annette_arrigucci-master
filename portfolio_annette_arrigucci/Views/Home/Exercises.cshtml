@@ -1,7 +1,7 @@
 ﻿<link href="~/css/page-top-padding.css" rel="stylesheet">
-
-<!--Exercises section-->
-<section id="exercises">
+<link href="~/css/exercises.css" rel="stylesheet">
+<!-- Exercises Grid Section -->
+<section id="portfolio">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center page-start">
@@ -10,16 +10,227 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <p><b>EXERCISES</b></p>
-
-            </div>
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <a href="#" class="btn btn-lg btn-outline">
-                    <i class="fa fa-download"></i> Download Theme
+            <div class="col-sm-6 portfolio-item">
+                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/einstein-900.png" class="img-responsive" alt="">
                 </a>
             </div>
+            <div class="col-sm-6 portfolio-item">
+                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/einstein-900.png" class="img-responsive" alt="">
+                </a>
+            </div>
+            <div class="col-sm-6 portfolio-item">
+                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/shopping-list-900.png" class="img-responsive" alt="">
+                </a>
+            </div>
+            <div class="col-sm-6 portfolio-item">
+                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/sports-scores-900.png" class="img-responsive" alt="">
+                </a>
+            </div>
+            <!---<div class="col-sm-4 portfolio-item">
+                <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/bookshelf-900.png" class="img-responsive" alt="">
+                </a>
+            </div>
+            <div class="col-sm-4 portfolio-item">
+                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/site-management-900.png" class="img-responsive" alt="">
+                </a>
+            </div>-->
         </div>
     </div>
 </section>
+<!-- Portfolio Modals -->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>Numbers Functions</h2>
+                        <hr class="star-primary">
+                        <div class="main">
+                            <p>Enter at least five numbers to add to the array:</p>
+
+                            <form id="enter-number-numbers">
+                                <input type="text" id="new-number-numbers">
+                                <button id="submit-button-numbers">Submit</button>
+                            </form>
+
+                            <div id="button-panel">
+                                <div id="least-display"><button id="least-button">Least</button></div>
+                                <div id="greatest-display"><button id="greatest-button">Greatest</button></div>
+                                <div id="mean-display"><button id="mean-button">Mean</button></div>
+                                <div id="sum-display"><button id="sum-button">Sum</button></div>
+                                <div id="product-display"><button id="product-button">Product</button></div>
+                            </div>
+
+                            <div id="current-numbers">
+                                <p>Current numbers:</p>
+                            </div>
+
+                        </div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>Factorial Function</h2>
+                        <hr class="star-primary">
+                        <div class="main">
+                            <p>Enter non-negative integer:</p>
+
+                            <form id="enter-number-factorial">
+                                <input type="text" id="new-number-factorial">
+                                <button id="submit-button-factorial">Submit</button>
+                            </form>
+                            <p>Factorial: </p>
+                            <div id="factorial-result">
+
+                            </div>
+
+                        </div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>Fizz Buzz Function</h2>
+                        <hr class="star-primary">
+                        <div class="main">
+                            <p>Enter two numbers between 1 and 100:</p>
+
+                            <form id="enter-numbers-fizz-buzz">
+                                <P>
+                                    <label for="number-1">First number</label><br>
+                                    <input type="text" id="number-1-fizz-buzz">
+                                </P>
+
+                                <p>
+                                    <label for="number-2">Second number</label><br>
+                                    <input type="text" id="number-2-fizz-buzz">
+                                </p>
+                            </form>
+
+                            <p>Press the button to print out numbers 1 through 100 replacing number with "Fizz" if divisible by the first number, "Buzz" if divisible by the second number and "FizzBuzz" if divisible by both the first and second numbers.</p>
+                            <button id="submit-button-fizz-buzz">FizzBuzz!</button>
+
+                            <div id="fizz-buzz-result">
+                            </div>
+
+                        </div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>Palindrome Tester</h2>
+                        <hr class="star-primary">
+                        <div class="main">
+                            <p>Enter a word:</p>
+
+                            <form id="enter-word-palindrome">
+                                <input type="text" id="new-word-palindrome" size="25">
+                                <button id="submit-button-palindrome">Submit</button>
+                            </form>
+                            <p>Is palindrome: </p>
+                            <p id="is-palindrome">
+
+                            </p>
+
+                        </div>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="~/js/app-factorial.js"></script>
+<script src="~/js/app-numbers.js"></script>
+<script src="~/js/app-fizz-buzz.js"></script>
+<script src="~/js/app-palindrome.js"></script>
 
