@@ -220,6 +220,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="gulpfile.js" />
+    <Content Include="img\exercises\factorial-image.png" />
+    <Content Include="img\exercises\fizz-buzz-image.png" />
+    <Content Include="img\exercises\numbers_functions_larger.png" />
+    <Content Include="img\exercises\numbers_function_image.png" />
+    <Content Include="img\exercises\palindrome-tester-image.png" />
     <Content Include="img\portfolio\bookshelf-900.png" />
     <Content Include="img\portfolio\cabin.png" />
     <Content Include="img\portfolio\cake.png" />
