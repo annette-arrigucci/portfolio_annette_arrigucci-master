@@ -1,5 +1,19 @@
 ﻿<link href="~/css/page-top-padding.css" rel="stylesheet">
 <link href="~/css/exercises.css" rel="stylesheet">
+
+<!-- Include required JS files -->
+<script type="text/javascript" src="~/js/shCore.js"></script>
+
+<!--
+    At least one brush, here we choose JS. You need to include a brush for every
+    language you want to highlight
+-->
+<script type="text/javascript" src="~/css/shBrushJScript.js"></script>
+
+<!-- Include *at least* the core style and default theme -->
+<link href="~/css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="~/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
 <!-- Exercises Grid Section -->
 <section id="portfolio">
     <div class="container">
@@ -90,6 +104,117 @@
                             </div>
 
                         </div>
+                        <br />
+                        <p>View code:</p>
+                        <pre class="brush: js" style="text-align: left;">
+            $(document).ready(function() {
+                var numbersArray = [];
+                $("#submit-button-numbers").click(function(event) {
+                    event.preventDefault();
+                    var myInput = $("#new-number-numbers").val();
+                    if (+(myInput) % 1 != 0) {
+	                    alert("Input must be an integer");
+                    }
+	
+	                else {
+	                    var number = parseInt(+(myInput));
+                        addToArray(number);
+	                    $("#new-number-numbers").val('');
+                    }
+                });
+	            function addToArray(myNumber) {
+                    numbersArray.push(myNumber);
+		            $("#current-numbers").append(myNumber + "&lt;br>");
+	            }
+	            $("#least-button").click(function(event) {
+		            if(numbersArray.length &lt; 5) {
+			            alert("Please enter at least five numbers");
+		            }
+		            else {
+			                $("#least-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + least());
+		            }
+	            });
+	                $("#greatest-button").click(function(event) {
+		            if(numbersArray.length &lt; 5) {
+			            alert("Please enter at least five numbers");
+		            }
+		            else {
+			            $("#greatest-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + greatest());
+		            }
+	            });
+	            $("#mean-button").click(function(event) {
+		            if(numbersArray.length &lt; 5) {
+			            alert("Please enter at least five numbers");
+		        }
+		        else {
+			        $("#mean-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + mean());
+		        }
+	        });
+	        $("#sum-button").click(function(event) {
+		    if(numbersArray.length &lt; 5) {
+			    alert("Please enter at least five numbers");
+		    }
+		    else {
+			    $("#sum-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + sum());
+		    }
+	    });
+	    $("#product-button").click(function(event) {
+		    if(numbersArray.length &lt; 5) {
+			    alert("Please enter at least five numbers");
+		    }
+		    else {
+			    $("#product-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + product());
+		    }
+	    });
+	    function least() {
+		    var myLeast = numbersArray[0];
+		    for(var i=1; i&lt;numbersArray.length; i++){
+                if (myLeast> numbersArray[i]){
+				    myLeast = numbersArray[i];
+			    }
+		    }
+		    return myLeast;
+	    }
+	    function greatest() {
+		    var myGreatest = numbersArray[0];
+		    for(var i=1; i&lt;numbersArray.length; i++){
+                if (myGreatest &lt; numbersArray[i]){
+				    myGreatest = numbersArray[i];
+			    }
+		    }
+		    return myGreatest;
+	    }
+	    function mean() {
+		    //var newArray = numbersArray.slice();
+		    numbersArray.sort(function(a, b) {
+			    return a-b;
+		    });
+		    var myIndex = 0;
+		    if(numbersArray.length % 2 == 0){
+			    myIndex = parseInt((numbersArray.length / 2) - 1);
+			    return numbersArray[myIndex];
+		    }
+		    else {
+			    myIndex = parseInt(numbersArray.length / 2);
+			    return numbersArray[myIndex];
+		    }
+	    }
+	    function sum() {
+		    var mySum = 0;
+		    for(var i=0; i&lt;numbersArray.length; i++){
+			    mySum+=numbersArray[i];
+		    }
+		    return mySum;
+	    }
+	    function product() {
+		    var myProduct = 1;
+		    for(var i=0; i&lt;numbersArray.length; i++){
+			    myProduct*=numbersArray[i];
+		    }
+		    return myProduct;
+	    }
+    });
+     </pre>
                         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                     </div>
                 </div>
@@ -111,7 +236,7 @@
                     <div class="modal-body">
                         <h2>Factorial Function</h2>
                         <hr class="star-primary">
-                        <div class="main">
+                        <div class="text-center">
                             <p>Enter non-negative integer:</p>
 
                             <form id="enter-number-factorial">
@@ -124,6 +249,36 @@
                             </div>
 
                         </div>
+                        <br />
+                        <p>View code:</p>
+                        <pre class="brush: js" style="text-align: left;">
+    $(document).ready(function() {
+	$("#submit-button-factorial").click(function(event) {
+		event.preventDefault();
+		$("#factorial-result").empty();
+		var myInput = $("#new-number-factorial").val();
+		if (+(myInput) % 1 != 0) {
+			alert("Input must be an integer");
+		}
+		else if	(+(myInput) < 0){
+			alert("Input must not negative");
+		}
+		else {
+			var number = parseInt(+(myInput));
+			$("#factorial-result").append(factorial(number));
+		}
+	});
+	function factorial(myNumber){
+		var myProduct = myNumber;
+		var i = myNumber;
+		while(i > 1) {
+			i--;
+		 	myProduct*=i;
+		}
+		return myProduct;
+	}
+});
+     </pre>
                         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                     </div>
                 </div>
@@ -167,6 +322,53 @@
                             </div>
 
                         </div>
+                        <br />
+                        <p>View code:</p>
+                        <pre class="brush: js" style="text-align: left;">
+$(document).ready(function() {
+	$("#submit-button-fizz-buzz").click(function(event) {
+		event.preventDefault();
+		$("#fizz-buzz-result").empty();
+		var myInput1 = $("#number-1-fizz-buzz").val();
+		var myInput2 = $("#number-2-fizz-buzz").val();
+		if(myInput1 == '' || myInput2 == ''){
+			alert("Please enter two values");
+		}
+		else if(validateNumber(myInput1) && validateNumber(myInput2)){
+			var number1 = parseInt(myInput1);
+			var number2 = parseInt(myInput2);
+			fizzBuzz(number1, number2);
+		}
+	});
+	function validateNumber(myInput) {
+		if (+(myInput) % 1 != 0) {
+			alert("Input must be an integer");
+			return false;
+		}
+		else if	((+(myInput) < 0) || (+(myInput) > 100)){
+			alert("Input must be between 1 and 100");
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	function fizzBuzz(myNumber1, myNumber2){
+		for(var i=1; i<=100; i++){
+			if(i % myNumber1 == 0){
+				$("#fizz-buzz-result").append("Fizz");
+			}
+			if(i % myNumber2 == 0){
+				$("#fizz-buzz-result").append("Buzz");
+			}
+			if(i % myNumber1 != 0 && i % myNumber2 != 0) {
+				$("#fizz-buzz-result").append(i);
+			}
+			$("#fizz-buzz-result").append("<br />");
+		}
+	}
+});
+     </pre>
                         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                     </div>
                 </div>
@@ -188,7 +390,7 @@
                     <div class="modal-body">
                         <h2>Palindrome Tester</h2>
                         <hr class="star-primary">
-                        <div class="main">
+                        <div class="text-center">
                             <p>Enter a word:</p>
 
                             <form id="enter-word-palindrome">
@@ -201,6 +403,46 @@
                             </p>
 
                         </div>
+                        <br />
+                        <p>View code:</p>
+                        <pre class="brush: js" style="text-align: left;">
+$(document).ready(function() {
+	$("#submit-button-palindrome").click(function(event) {
+		event.preventDefault();
+		$("#is-palindrome").empty();
+		var myInput = $("#new-word-palindrome").val();
+		if(myInput == ''){
+			alert("Please enter a word");
+		}
+		else {
+			var letterArray = myInput.split("");
+			if(checkPalindrome(letterArray) == true) {
+				$("#is-palindrome").append("Yes");
+			}
+			else {
+				$("#is-palindrome").append("No");
+			}
+		}
+	});
+	function checkPalindrome(myLetterArray){
+		var middle = 0;
+		var isPalindrome = true; //flag if the word is a palindrome
+		var end = myLetterArray.length - 1;
+		if(myLetterArray.length % 2 == 1) {
+			middle = parseInt((myLetterArray.length - 1)/2);
+		}
+		else {
+			middle = myLetterArray.length / 2;
+		}
+		for(var i=0; i&lt; middle; i++) {
+            if(myLetterArray[i] != =myLetterArray[end - i]){
+                isPalindrome=false;
+            }
+        }
+        return isPalindrome;
+    }
+});
+                        </pre>
                         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                     </div>
                 </div>
@@ -214,4 +456,9 @@
 <script src="~/js/app-numbers.js"></script>
 <script src="~/js/app-fizz-buzz.js"></script>
 <script src="~/js/app-palindrome.js"></script>
+
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+   SyntaxHighlighter.all()
+</script>
 
