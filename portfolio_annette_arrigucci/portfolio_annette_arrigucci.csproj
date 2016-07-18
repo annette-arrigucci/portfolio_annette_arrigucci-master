@@ -250,8 +250,10 @@
     <Content Include="js\freelancer.js" />
     <Content Include="js\freelancer.min.js" />
     <Content Include="js\jqBootstrapValidation.js" />
+    <Content Include="js\shAutoloader.js" />
     <Content Include="js\shBrushJScript.js" />
     <Content Include="js\shCore.js" />
+    <Content Include="js\shLegacy.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
