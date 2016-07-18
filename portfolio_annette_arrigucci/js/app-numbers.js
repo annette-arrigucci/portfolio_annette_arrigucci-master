@@ -88,19 +88,8 @@ $(document).ready(function() {
 	}
 
 	function mean() {
-		//var newArray = numbersArray.slice();
-		numbersArray.sort(function(a, b) {
-			return a-b;
-		});
-		var myIndex = 0;
-		if(numbersArray.length % 2 == 0){
-			myIndex = parseInt((numbersArray.length / 2) - 1);
-			return numbersArray[myIndex];
-		}
-		else {
-			myIndex = parseInt(numbersArray.length / 2);
-			return numbersArray[myIndex];
-		}
+		var myMean = sum() / numbersArray.length;
+		return myMean;
 	}
 
 	function sum() {
