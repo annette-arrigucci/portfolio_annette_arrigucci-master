@@ -233,7 +233,7 @@ $(document).ready(function() {
                         <br />
                         <p>View code:</p>
                         <pre class="brush: js" style="text-align: left;">
-    $(document).ready(function() {
+$(document).ready(function() {
 	$("#submit-button-factorial").click(function(event) {
 		event.preventDefault();
 		$("#factorial-result").empty();
@@ -326,7 +326,7 @@ $(document).ready(function() {
 			alert("Input must be an integer");
 			return false;
 		}
-		else if	((+(myInput) < 0) || (+(myInput) > 100)){
+		else if	((+(myInput) < 1) || (+(myInput) > 100)){
 			alert("Input must be between 1 and 100");
 			return false;
 		}
@@ -415,7 +415,7 @@ $(document).ready(function() {
 		else {
 			middle = myLetterArray.length / 2;
 		}
-		for(var i=0; i&lt; middle; i++) {
+		for(var i=0; i < middle; i++) {
             if(myLetterArray[i] != =myLetterArray[end - i]){
                 isPalindrome=false;
             }
