@@ -1,12 +1,13 @@
 $(document).ready(function() {
 
 	$("#submit-button-fizz-buzz").click(function(event) {
-		event.preventDefault();
+	    event.preventDefault();
+	    $("#error-panel-fizz-buzz").empty();
 		$("#fizz-buzz-result").empty();
 		var myInput1 = $("#number-1-fizz-buzz").val();
 		var myInput2 = $("#number-2-fizz-buzz").val();
 		if(myInput1 == '' || myInput2 == ''){
-			alert("Please enter two values");
+		    $("#error-panel-fizz-buzz").append("Please enter two values<br>");
 		}
 		else if(validateNumber(myInput1) && validateNumber(myInput2)){
 			var number1 = parseInt(myInput1);
@@ -17,11 +18,11 @@ $(document).ready(function() {
 
 	function validateNumber(myInput) {
 		if (+(myInput) % 1 != 0) {
-			alert("Input must be an integer");
+		    $("#error-panel-fizz-buzz").append("Input must be an integer<br>");
 			return false;
 		}
 		else if	((+(myInput) < 1) || (+(myInput) > 100)){
-			alert("Input must be between 1 and 100");
+		    $("#error-panel-fizz-buzz").append("Input must be between 1 and 100<br>");
 			return false;
 		}
 		else {

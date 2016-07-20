@@ -3,9 +3,10 @@ $(document).ready(function() {
 	$("#submit-button-palindrome").click(function(event) {
 		event.preventDefault();
 		$("#is-palindrome").empty();
+		$("#error-panel-palindrome").empty();
 		var myInput = $("#new-word-palindrome").val();
 		if(myInput == ''){
-			alert("Please enter a word");
+		    $("#error-panel-palindrome").append("Please enter a word<br>");
 		}
 		else {
 		    var letters = /^[a-zA-Z]+$/;
@@ -20,7 +21,7 @@ $(document).ready(function() {
 		        }
 		    }
 		    else {
-		        alert("Please enter one word");
+		        $("#error-panel-palindrome").append("Please enter one word");
 		    }
 		}
 	});

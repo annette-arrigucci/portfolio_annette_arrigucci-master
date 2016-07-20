@@ -1,16 +1,6 @@
 #portfolio .portfolio-item .portfolio-link {
   max-width: 500px;
 }
-/*pre {
-    margin: 30px auto;
-}
-
-.modal-content {
-    text-align: left !important;
-}
-.portfolio-modal {
-    text-align: left !important;
-}*/
 .modal-body .main {
     text-align: left !important;
 }
@@ -19,4 +9,8 @@ button {
     margin-bottom: 10px !important;
     margin-left: 0;
     margin-right: 25px;
+}
+
+.error {
+    color: red;
 }
