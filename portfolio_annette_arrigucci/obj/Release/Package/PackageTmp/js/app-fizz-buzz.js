@@ -20,7 +20,7 @@ $(document).ready(function() {
 			alert("Input must be an integer");
 			return false;
 		}
-		else if	((+(myInput) < 0) || (+(myInput) > 100)){
+		else if	((+(myInput) < 1) || (+(myInput) > 100)){
 			alert("Input must be between 1 and 100");
 			return false;
 		}

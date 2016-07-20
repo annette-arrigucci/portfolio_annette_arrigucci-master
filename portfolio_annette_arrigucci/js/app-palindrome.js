@@ -8,13 +8,20 @@ $(document).ready(function() {
 			alert("Please enter a word");
 		}
 		else {
-			var letterArray = myInput.split("");
-			if(checkPalindrome(letterArray) == true) {
-				$("#is-palindrome").append("Yes");
-			}
-			else {
-				$("#is-palindrome").append("No");
-			}
+		    var letters = /^[a-zA-Z]+$/;
+		    if (myInput.match(letters)) {
+		        var myWord = myInput.toLowerCase();
+		        var letterArray = myWord.split("");
+		        if(checkPalindrome(letterArray) == true) {
+		            $("#is-palindrome").append("Yes");
+		        }
+		        else {
+		            $("#is-palindrome").append("No");
+		        }
+		    }
+		    else {
+		        alert("Please enter one word");
+		    }
 		}
 	});
 

@@ -4,7 +4,10 @@ $(document).ready(function() {
 		event.preventDefault();
 		$("#factorial-result").empty();
 		var myInput = $("#new-number-factorial").val();
-		if (+(myInput) % 1 != 0) {
+		if (myInput == '') {
+		    alert("Please enter a non-negative integer");
+		}
+        else if (+(myInput) % 1 != 0) {
 			alert("Input must be an integer");
 		}
 		else if	(+(myInput) < 0){

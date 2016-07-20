@@ -4,10 +4,12 @@ $(document).ready(function() {
 	$("#submit-button-numbers").click(function(event) {
 		event.preventDefault();
 		var myInput = $("#new-number-numbers").val();
-		if (+(myInput) % 1 != 0) {
+		if (myInput == '') {
+		    alert("Please enter an integer");
+		}
+        else if (+(myInput) % 1 != 0) {
 			alert("Input must be an integer");
 		}
-	
 		else {
 			var number = parseInt(+(myInput));
 			addToArray(number);
@@ -25,7 +27,8 @@ $(document).ready(function() {
 			alert("Please enter at least five numbers");
 		}
 		else {
-			$("#least-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + least());
+		    $("#least-display").text('');
+			$("#least-display").text("     " + least());
 		}
 	});
 
@@ -34,7 +37,8 @@ $(document).ready(function() {
 			alert("Please enter at least five numbers");
 		}
 		else {
-			$("#greatest-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + greatest());
+		    $("#greatest-display").text('');
+		    $("#greatest-display").text("     " + greatest());
 		}
 	});
 
@@ -43,7 +47,8 @@ $(document).ready(function() {
 			alert("Please enter at least five numbers");
 		}
 		else {
-			$("#mean-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + mean());
+		    $("#mean-display").text('');
+		    $("#mean-display").text("     " + mean());
 		}
 	});
 
@@ -52,7 +57,8 @@ $(document).ready(function() {
 			alert("Please enter at least five numbers");
 		}
 		else {
-			$("#sum-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + sum());
+		    $("#sum-display").text('');
+		    $("#sum-display").text("     " + sum());
 		}
 	});
 
@@ -61,8 +67,19 @@ $(document).ready(function() {
 			alert("Please enter at least five numbers");
 		}
 		else {
-			$("#product-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + product());
+		    $("#product-display").text('');
+		    $("#product-display").text("     " + product());
 		}
+	});
+
+	$("#clear-button").click(function (event) {
+	    numbersArray = [];
+	    $("#current-numbers").text('');
+	    $("#least-display").text('');
+	    $("#greatest-display").text('');
+	    $("#mean-display").text('');
+	    $("#sum-display").text('');
+	    $("#product-display").text('');
 	});
 
 	function least() {
