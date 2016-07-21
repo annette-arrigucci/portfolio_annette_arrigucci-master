@@ -1,14 +1,18 @@
 $(document).ready(function() {
 
 	$("#submit-button-factorial").click(function(event) {
-		event.preventDefault();
+	    event.preventDefault();
+	    $("#error-panel-factorial").empty();
 		$("#factorial-result").empty();
 		var myInput = $("#new-number-factorial").val();
-		if (+(myInput) % 1 != 0) {
-			alert("Input must be an integer");
+		if (myInput == '') {
+		    $("#error-panel-factorial").append("Please enter a non-negative integer<br>");
+		}
+        else if (+(myInput) % 1 != 0) {
+			$("#error-panel-factorial").append("Input must be an integer<br>");
 		}
 		else if	(+(myInput) < 0){
-			alert("Input must not be negative");
+		    $("#error-panel-factorial").append("Input must not be negative");
 		}
 		else {
 			var number = parseInt(+(myInput));

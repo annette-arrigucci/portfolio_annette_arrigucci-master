@@ -2,12 +2,15 @@ $(document).ready(function() {
 	var numbersArray = [];
 
 	$("#submit-button-numbers").click(function(event) {
-		event.preventDefault();
+	    event.preventDefault();
+	    $("#error-panel-numbers").empty();
 		var myInput = $("#new-number-numbers").val();
-		if (+(myInput) % 1 != 0) {
-			alert("Input must be an integer");
+		if (myInput == '') {
+		    $("#error-panel-numbers").append("Please enter an integer<br>");
 		}
-	
+        else if (+(myInput) % 1 != 0) {
+            $("#error-panel-numbers").append("Input must be an integer<br>");
+		}
 		else {
 			var number = parseInt(+(myInput));
 			addToArray(number);
@@ -20,49 +23,61 @@ $(document).ready(function() {
 		$("#current-numbers").append(myNumber + "<br>");
 	}
 
+	function checkLength() {
+	    if (numbersArray.length < 5) {
+	        $("#error-panel-numbers").empty();
+	        $("#error-panel-numbers").append("Please enter at least five numbers<br>");
+	        return false;
+	    }
+	    else {
+	        return true;
+	    }
+	}
+
 	$("#least-button").click(function(event) {
-		if(numbersArray.length < 5) {
-			alert("Please enter at least five numbers");
-		}
-		else {
-			$("#least-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + least());
+		if(checkLength()) {
+		    $("#least-display").text('');
+			$("#least-display").text("     " + least());
 		}
 	});
 
 	$("#greatest-button").click(function(event) {
-		if(numbersArray.length < 5) {
-			alert("Please enter at least five numbers");
-		}
-		else {
-			$("#greatest-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + greatest());
+	    if (checkLength()) {
+		    $("#greatest-display").text('');
+		    $("#greatest-display").text("     " + greatest());
 		}
 	});
 
 	$("#mean-button").click(function(event) {
-		if(numbersArray.length < 5) {
-			alert("Please enter at least five numbers");
-		}
-		else {
-			$("#mean-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + mean());
+	    if (checkLength()) {
+		    $("#mean-display").text('');
+		    $("#mean-display").text("     " + mean());
 		}
 	});
 
 	$("#sum-button").click(function(event) {
-		if(numbersArray.length < 5) {
-			alert("Please enter at least five numbers");
-		}
-		else {
-			$("#sum-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + sum());
+	    if (checkLength()) {
+		    $("#sum-display").text('');
+		    $("#sum-display").text("     " + sum());
 		}
 	});
 
 	$("#product-button").click(function(event) {
-		if(numbersArray.length < 5) {
-			alert("Please enter at least five numbers");
+	    if (checkLength()) {
+		    $("#product-display").text('');
+		    $("#product-display").text("     " + product());
 		}
-		else {
-			$("#product-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + product());
-		}
+	});
+
+	$("#clear-button-numbers").click(function (event) {
+	    numbersArray = [];
+	    $("#error-panel-numbers").empty();
+	    $("#current-numbers").text('');
+	    $("#least-display").text('');
+	    $("#greatest-display").text('');
+	    $("#mean-display").text('');
+	    $("#sum-display").text('');
+	    $("#product-display").text('');
 	});
 
 	function least() {

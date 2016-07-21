@@ -3,18 +3,26 @@ $(document).ready(function() {
 	$("#submit-button-palindrome").click(function(event) {
 		event.preventDefault();
 		$("#is-palindrome").empty();
+		$("#error-panel-palindrome").empty();
 		var myInput = $("#new-word-palindrome").val();
 		if(myInput == ''){
-			alert("Please enter a word");
+		    $("#error-panel-palindrome").append("Please enter a word<br>");
 		}
 		else {
-			var letterArray = myInput.split("");
-			if(checkPalindrome(letterArray) == true) {
-				$("#is-palindrome").append("Yes");
-			}
-			else {
-				$("#is-palindrome").append("No");
-			}
+		    var letters = /^[a-zA-Z]+$/;
+		    if (myInput.match(letters)) {
+		        var myWord = myInput.toLowerCase();
+		        var letterArray = myWord.split("");
+		        if(checkPalindrome(letterArray) == true) {
+		            $("#is-palindrome").append("Yes");
+		        }
+		        else {
+		            $("#is-palindrome").append("No");
+		        }
+		    }
+		    else {
+		        $("#error-panel-palindrome").append("Please enter one word");
+		    }
 		}
 	});
 

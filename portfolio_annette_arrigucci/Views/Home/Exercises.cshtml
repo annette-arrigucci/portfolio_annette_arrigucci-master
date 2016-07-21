@@ -72,31 +72,37 @@
                     <div class="modal-body">
                         <h2>Numbers Functions</h2>
                         <hr class="star-primary">
-                        <div class="main">
-                            <div id="error-panel-numbers" class="error"></div>
-                            <p>Enter at least five numbers to add to the array:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="modal-body">
+                     <div class="col-sm-6">
+                          <div class="main">
+                               <div id="error-panel-numbers" class="error"></div>
+                                    <p>Enter at least five numbers to add to the array:</p>
+                                        <form id="enter-number-numbers">
+                                            <input type="text" id="new-number-numbers">
+                                            <button id="submit-button-numbers">Submit</button>
+                                        </form>
+                                        <div id="button-panel">
+                                            <div><button id="least-button">Least</button><span id="least-display"></span></div>
+                                            <div><button id="greatest-button">Greatest</button><span id="greatest-display"></span></div>
+                                            <div><button id="mean-button">Mean</button><span id="mean-display"></span></div>
+                                            <div><button id="sum-button">Sum</button><span id="sum-display"></span></div>
+                                            <div><button id="product-button">Product</button><span id="product-display"></span></div>
+                                        </div>
+                                        <p>Current numbers:</p>
+                                        <div id="current-numbers">
 
-                            <form id="enter-number-numbers">
-                                <input type="text" id="new-number-numbers">
-                                <button id="submit-button-numbers">Submit</button>
-                            </form>
-
-                            <div id="button-panel">
-                                <div><button id="least-button">Least</button><span id="least-display"></span></div>
-                                <div><button id="greatest-button">Greatest</button><span id="greatest-display"></span></div>
-                                <div><button id="mean-button">Mean</button><span id="mean-display"></span></div>
-                                <div><button id="sum-button">Sum</button><span id="sum-display"></span></div>
-                                <div><button id="product-button">Product</button><span id="product-display"></span></div>
-                            </div>
-                            <p>Current numbers:</p>
-                            <div id="current-numbers">
-                                
-                            </div>
-                        <button id="clear-button-numbers">Clear array</button>
-                        </div>
-                        <br />
-                        <p>View code:</p>
-                        <pre class="brush: js" style="text-align: left;">
+                                        </div>
+                                        <button id="clear-button-numbers">Clear array</button>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>View code:</p>
+                                    <pre class="brush: js" style="text-align: left;">
 $(document).ready(function() {
 	var numbersArray = [];
 	$("#submit-button-numbers").click(function(event) {
@@ -189,12 +195,10 @@ $(document).ready(function() {
 		}
 		return myGreatest;
 	}
-
 	function mean() {
 		var myMean = sum() / numbersArray.length;
 		return myMean;
 	}
-
 	function sum() {
 		var mySum = 0;
 		for(var i=0; i < numbersArray.length; i++){
@@ -202,7 +206,6 @@ $(document).ready(function() {
 		}
 		return mySum;
 	}
-
 	function product() {
 		var myProduct = 1;
 		for(var i=0; i < numbersArray.length; i++){
@@ -212,44 +215,52 @@ $(document).ready(function() {
 	}
 });
      </pre>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                </div>
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Factorial Function</h2>
-                        <hr class="star-primary">
-                        <div class="text-center">
-                            <div id="error-panel-factorial" class="error"></div>
-                            <p>Enter non-negative integer:</p>
-
-                            <form id="enter-number-factorial">
-                                <input type="text" id="new-number-factorial">
-                                <button id="submit-button-factorial">Submit</button>
-                            </form>
-                            <p>Factorial: </p>
-                            <div id="factorial-result">
-
+            <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl">
                             </div>
-
                         </div>
-                        <br />
-                        <p>View code:</p>
-                        <pre class="brush: js" style="text-align: left;">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="modal-body">
+                                    <h2>Factorial Function</h2>
+                                    <hr class="star-primary">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="modal-body">
+                                <div class="col-sm-6">
+                                    <div class="text-center">
+                                        <div id="error-panel-factorial" class="error"></div>
+                                        <p>Enter non-negative integer:</p>
+                                        <form id="enter-number-factorial">
+                                            <input type="text" id="new-number-factorial">
+                                            <button id="submit-button-factorial">Submit</button>
+                                        </form>
+                                        <p>Factorial: </p>
+                                        <div id="factorial-result">
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>View code:</p>
+                                <pre class="brush: js" style="text-align: left;">
 $(document).ready(function() {
 	$("#submit-button-factorial").click(function(event) {
 	    event.preventDefault();
@@ -281,53 +292,57 @@ $(document).ready(function() {
 	}
 });
      </pre>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Fizz Buzz Function</h2>
-                        <hr class="star-primary">
-                        <div class="main">
-                            <div id="error-panel-fizz-buzz" class="error"></div>
-                            <p>Enter two numbers between 1 and 100:</p>
-
-                            <form id="enter-numbers-fizz-buzz">
-                                <P>
-                                    <label for="number-1">First number</label><br>
-                                    <input type="text" id="number-1-fizz-buzz">
-                                </P>
-
-                                <p>
-                                    <label for="number-2">Second number</label><br>
-                                    <input type="text" id="number-2-fizz-buzz">
-                                </p>
-                            </form>
-
-                            <p>Press the button to print out numbers 1 through 100 replacing number with "Fizz" if divisible by the first number, "Buzz" if divisible by the second number and "FizzBuzz" if divisible by both the first and second numbers.</p>
-                            <button id="submit-button-fizz-buzz">FizzBuzz!</button>
-
-                            <div id="fizz-buzz-result">
+                                </div>
+                           </div>
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                         </div>
+                   </div>
+             </div>
+            <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl">
                             </div>
-
                         </div>
-                        <br />
-                        <p>View code:</p>
-                        <pre class="brush: js" style="text-align: left;">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="modal-body">
+                                    <h2>Fizz Buzz Function</h2>
+                                    <hr class="star-primary">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="main">
+                                    <div id="error-panel-fizz-buzz" class="error"></div>
+                                    <p>Enter two numbers between 1 and 100:</p>
+
+                                    <form id="enter-numbers-fizz-buzz">
+                                        <P>
+                                            <label for="number-1">First number</label><br>
+                                            <input type="text" id="number-1-fizz-buzz">
+                                        </P>
+                                        <p>
+                                            <label for="number-2">Second number</label><br>
+                                            <input type="text" id="number-2-fizz-buzz">
+                                        </p>
+                                    </form>
+                                
+                                    <p>Press the button to print out numbers 1 through 100 replacing number with "Fizz" if divisible by the first number, "Buzz" if divisible by the second number and "FizzBuzz" if divisible by both the first and second numbers.</p>
+                                    <button id="submit-button-fizz-buzz">FizzBuzz!</button>
+
+                                    <div id="fizz-buzz-result">
+                                    </div>
+                                </div>
+                            <br />
+                            </div>
+                            <div class="col-sm-6">
+                                <p>View code:</p>
+                                <pre class="brush: js" style="text-align: left;">
 $(document).ready(function() {
 	$("#submit-button-fizz-buzz").click(function(event) {
 	    event.preventDefault();
@@ -373,44 +388,47 @@ $(document).ready(function() {
 	}
 });
      </pre>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Palindrome Tester</h2>
-                        <hr class="star-primary">
-                        <div class="text-center">
-                            <div id="error-panel-palindrome" class="error"></div>
-                            <p>Enter a word:</p>
-
-                            <form id="enter-word-palindrome">
-                                <input type="text" id="new-word-palindrome" size="25">
-                                <button id="submit-button-palindrome">Submit</button>
-                            </form>
-                            <p>Is palindrome: </p>
-                            <p id="is-palindrome">
-
-                            </p>
-
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                       </div>
+                  </div>
+             </div>
+            <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl">
+                            </div>
                         </div>
-                        <br />
-                        <p>View code:</p>
-                        <pre class="brush: js" style="text-align: left;">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="modal-body">
+                                    <h2>Palindrome Tester</h2>
+                                    <hr class="star-primary">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                               <div class="text-center">
+                                   <div id="error-panel-palindrome" class="error"></div>
+                                        <p>Enter a word:</p>
+                                        <form id="enter-word-palindrome">
+                                            <input type="text" id="new-word-palindrome" size="25">
+                                            <button id="submit-button-palindrome">Submit</button>
+                                        </form>
+                                        <p>Is palindrome: </p>
+                                        <p id="is-palindrome">
+                                        </p>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>View code:</p>
+                                    <pre class="brush: js" style="text-align: left;">
 $(document).ready(function() {
 	$("#submit-button-palindrome").click(function(event) {
 		event.preventDefault();
@@ -456,19 +474,17 @@ $(document).ready(function() {
     }
 });
                         </pre>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
+                                </div>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            </div>
+                       </div>
+                  </div>
             </div>
-        </div>
-    </div>
-</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="~/js/app-factorial.js"></script>
-<script src="~/js/app-numbers.js"></script>
-<script src="~/js/app-fizz-buzz.js"></script>
-<script src="~/js/app-palindrome.js"></script>
-
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+            <script src="~/js/app-factorial.js"></script>
+            <script src="~/js/app-numbers.js"></script>
+            <script src="~/js/app-fizz-buzz.js"></script>
+            <script src="~/js/app-palindrome.js"></script>
 
 

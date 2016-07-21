@@ -73,6 +73,7 @@
                         <h2>Numbers Functions</h2>
                         <hr class="star-primary">
                         <div class="main">
+                            <div id="error-panel-numbers" class="error"></div>
                             <p>Enter at least five numbers to add to the array:</p>
 
                             <form id="enter-number-numbers">
@@ -81,17 +82,17 @@
                             </form>
 
                             <div id="button-panel">
-                                <div id="least-display"><button id="least-button">Least</button></div>
-                                <div id="greatest-display"><button id="greatest-button">Greatest</button></div>
-                                <div id="mean-display"><button id="mean-button">Mean</button></div>
-                                <div id="sum-display"><button id="sum-button">Sum</button></div>
-                                <div id="product-display"><button id="product-button">Product</button></div>
+                                <div><button id="least-button">Least</button><span id="least-display"></span></div>
+                                <div><button id="greatest-button">Greatest</button><span id="greatest-display"></span></div>
+                                <div><button id="mean-button">Mean</button><span id="mean-display"></span></div>
+                                <div><button id="sum-button">Sum</button><span id="sum-display"></span></div>
+                                <div><button id="product-button">Product</button><span id="product-display"></span></div>
                             </div>
-
+                            <p>Current numbers:</p>
                             <div id="current-numbers">
-                                <p>Current numbers:</p>
+                                
                             </div>
-
+                        <button id="clear-button-numbers">Clear array</button>
                         </div>
                         <br />
                         <p>View code:</p>
@@ -99,12 +100,15 @@
 $(document).ready(function() {
 	var numbersArray = [];
 	$("#submit-button-numbers").click(function(event) {
-		event.preventDefault();
+	    event.preventDefault();
+	    $("#error-panel-numbers").empty();
 		var myInput = $("#new-number-numbers").val();
-		if (+(myInput) % 1 != 0) {
-			alert("Input must be an integer");
+		if (myInput == '') {
+		    $("#error-panel-numbers").append("Please enter an integer<br>");
 		}
-	
+        else if (+(myInput) % 1 != 0) {
+            $("#error-panel-numbers").append("Input must be an integer<br>");
+		}
 		else {
 			var number = parseInt(+(myInput));
 			addToArray(number);
@@ -113,52 +117,63 @@ $(document).ready(function() {
 	});
 	function addToArray(myNumber) {
 		numbersArray.push(myNumber);
-		$("#current-numbers").append(myNumber + "<br />");
+		$("#current-numbers").append(myNumber + "<br>");
+	}
+	function checkLength() {
+	    if (numbersArray.length < 5) {
+	        $("#error-panel-numbers").empty();
+	        $("#error-panel-numbers").append("Please enter at least five numbers<br>");
+	        return false;
+	    }
+	    else {
+	        return true;
+	    }
 	}
 	$("#least-button").click(function(event) {
-		if(numbersArray.length < 5) {
-			alert("Please enter at least five numbers");
-		}
-		else {
-			$("#least-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + least());
+		if(checkLength()) {
+		    $("#least-display").text('');
+			$("#least-display").text("     " + least());
 		}
 	});
 	$("#greatest-button").click(function(event) {
-		if(numbersArray.length < 5) {
-			alert("Please enter at least five numbers");
-		}
-		else {
-			$("#greatest-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + greatest());
+	    if (checkLength()) {
+		    $("#greatest-display").text('');
+		    $("#greatest-display").text("     " + greatest());
 		}
 	});
 	$("#mean-button").click(function(event) {
-		if(numbersArray.length < 5) {
-			alert("Please enter at least five numbers");
-		}
-		else {
-			$("#mean-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + mean());
+	    if (checkLength()) {
+		    $("#mean-display").text('');
+		    $("#mean-display").text("     " + mean());
 		}
 	});
 	$("#sum-button").click(function(event) {
-		if(numbersArray.length < 5) {
-			alert("Please enter at least five numbers");
-		}
-		else {
-			$("#sum-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + sum());
+	    if (checkLength()) {
+		    $("#sum-display").text('');
+		    $("#sum-display").text("     " + sum());
 		}
 	});
 	$("#product-button").click(function(event) {
-		if(numbersArray.length < 5) {
-			alert("Please enter at least five numbers");
+	    if (checkLength()) {
+		    $("#product-display").text('');
+		    $("#product-display").text("     " + product());
 		}
-		else {
-			$("#product-display").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + product());
-		}
+	});
+	$("#clear-button-numbers").click(function (event) {
+	    numbersArray = [];
+	    $("#error-panel-numbers").empty();
+	    $("#current-numbers").text('');
+	    $("#least-display").text('');
+	    $("#greatest-display").text('');
+	    $("#mean-display").text('');
+	    $("#sum-display").text('');
+	    $("#product-display").text('');
 	});
 	function least() {
 		var myLeast = numbersArray[0];
-		for(var i=1; i < numbersArray.length; i++){
-            if (myLeast > numbersArray[i]){
+		for(var i=1; i < numbersArray.length; i++)
+        {
+             if (myLeast> numbersArray[i]){
 				myLeast = numbersArray[i];
 			}
 		}
@@ -166,8 +181,9 @@ $(document).ready(function() {
 	}
 	function greatest() {
 		var myGreatest = numbersArray[0];
-		for(var i = 1; i < numbersArray.length; i++) {
-            if (myGreatest < numbersArray[i]){
+		for(var i=1; i < numbersArray.length; i++)
+           {
+             if (myGreatest < numbersArray[i]){
 				myGreatest = numbersArray[i];
 			}
 		}
@@ -218,6 +234,7 @@ $(document).ready(function() {
                         <h2>Factorial Function</h2>
                         <hr class="star-primary">
                         <div class="text-center">
+                            <div id="error-panel-factorial" class="error"></div>
                             <p>Enter non-negative integer:</p>
 
                             <form id="enter-number-factorial">
@@ -235,14 +252,18 @@ $(document).ready(function() {
                         <pre class="brush: js" style="text-align: left;">
 $(document).ready(function() {
 	$("#submit-button-factorial").click(function(event) {
-		event.preventDefault();
+	    event.preventDefault();
+	    $("#error-panel-factorial").empty();
 		$("#factorial-result").empty();
 		var myInput = $("#new-number-factorial").val();
-		if (+(myInput) % 1 != 0) {
-			alert("Input must be an integer");
+		if (myInput == '') {
+		    $("#error-panel-factorial").append("Please enter a non-negative integer<br>");
+		}
+        else if (+(myInput) % 1 != 0) {
+			$("#error-panel-factorial").append("Input must be an integer<br>");
 		}
 		else if	(+(myInput) < 0){
-			alert("Input must not be negative");
+		    $("#error-panel-factorial").append("Input must not be negative");
 		}
 		else {
 			var number = parseInt(+(myInput));
@@ -282,6 +303,7 @@ $(document).ready(function() {
                         <h2>Fizz Buzz Function</h2>
                         <hr class="star-primary">
                         <div class="main">
+                            <div id="error-panel-fizz-buzz" class="error"></div>
                             <p>Enter two numbers between 1 and 100:</p>
 
                             <form id="enter-numbers-fizz-buzz">
@@ -308,12 +330,13 @@ $(document).ready(function() {
                         <pre class="brush: js" style="text-align: left;">
 $(document).ready(function() {
 	$("#submit-button-fizz-buzz").click(function(event) {
-		event.preventDefault();
+	    event.preventDefault();
+	    $("#error-panel-fizz-buzz").empty();
 		$("#fizz-buzz-result").empty();
 		var myInput1 = $("#number-1-fizz-buzz").val();
 		var myInput2 = $("#number-2-fizz-buzz").val();
 		if(myInput1 == '' || myInput2 == ''){
-			alert("Please enter two values");
+		    $("#error-panel-fizz-buzz").append("Please enter two values<br>");
 		}
 		else if(validateNumber(myInput1) && validateNumber(myInput2)){
 			var number1 = parseInt(myInput1);
@@ -323,11 +346,11 @@ $(document).ready(function() {
 	});
 	function validateNumber(myInput) {
 		if (+(myInput) % 1 != 0) {
-			alert("Input must be an integer");
+		    $("#error-panel-fizz-buzz").append("Input must be an integer<br>");
 			return false;
 		}
 		else if	((+(myInput) < 1) || (+(myInput) > 100)){
-			alert("Input must be between 1 and 100");
+		    $("#error-panel-fizz-buzz").append("Input must be between 1 and 100<br>");
 			return false;
 		}
 		else {
@@ -345,7 +368,7 @@ $(document).ready(function() {
 			if(i % myNumber1 != 0 && i % myNumber2 != 0) {
 				$("#fizz-buzz-result").append(i);
 			}
-			$("#fizz-buzz-result").append("<br />");
+			$("#fizz-buzz-result").append("<br>");
 		}
 	}
 });
@@ -372,6 +395,7 @@ $(document).ready(function() {
                         <h2>Palindrome Tester</h2>
                         <hr class="star-primary">
                         <div class="text-center">
+                            <div id="error-panel-palindrome" class="error"></div>
                             <p>Enter a word:</p>
 
                             <form id="enter-word-palindrome">
@@ -391,18 +415,26 @@ $(document).ready(function() {
 	$("#submit-button-palindrome").click(function(event) {
 		event.preventDefault();
 		$("#is-palindrome").empty();
+		$("#error-panel-palindrome").empty();
 		var myInput = $("#new-word-palindrome").val();
 		if(myInput == ''){
-			alert("Please enter a word");
+		    $("#error-panel-palindrome").append("Please enter a word<br>");
 		}
 		else {
-			var letterArray = myInput.split("");
-			if(checkPalindrome(letterArray) == true) {
-				$("#is-palindrome").append("Yes");
-			}
-			else {
-				$("#is-palindrome").append("No");
-			}
+		    var letters = /^[a-zA-Z]+$/;
+		    if (myInput.match(letters)) {
+		        var myWord = myInput.toLowerCase();
+		        var letterArray = myWord.split("");
+		        if(checkPalindrome(letterArray) == true) {
+		            $("#is-palindrome").append("Yes");
+		        }
+		        else {
+		            $("#is-palindrome").append("No");
+		        }
+		    }
+		    else {
+		        $("#error-panel-palindrome").append("Please enter one word");
+		    }
 		}
 	});
 	function checkPalindrome(myLetterArray){
@@ -416,9 +448,9 @@ $(document).ready(function() {
 			middle = myLetterArray.length / 2;
 		}
 		for(var i=0; i < middle; i++) {
-            if(myLetterArray[i] != =myLetterArray[end - i]){
+           if(myLetterArray[i] != =myLetterArray[end - i]){
                 isPalindrome=false;
-            }
+           }
         }
         return isPalindrome;
     }
